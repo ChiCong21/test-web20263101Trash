@@ -1,0 +1,22 @@
+.container{
+  width: min(var(--container), calc(100% - 24px));
+  margin-inline: auto;
+}
+
+.section{
+  padding: 36px 0;
+}
+
+
+
+header, footer{
+  background: rgba(10,10,10,.70);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+footer{
+  border-bottom: none;
+
+  color: rgba(244,244,245,.7);
+}
+

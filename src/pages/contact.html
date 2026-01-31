@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>お問い合わせ｜TRASH キックボクシングジム</title>
+    <meta
+      name="description"
+      content="TRASHキックボクシングジムへのお問い合わせ・体験予約はこちらから。"
+    />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+  </head>
+
+  <body>
+    <!-- SNS bar -->
+    <div id="sns-bar"></div>
+    <header id="site-header"></header>
+
+    <main class="page contact-page">
+      <!-- Page hero -->
+      <section class="page-hero">
+        <div class="container">
+          <h1 class="section-title underline-accent">お問い合わせ</h1>
+        </div>
+      </section>
+
+      <section class="page-section">
+        <div class="container contact-wrap">
+          <!-- Contact info -->
+          <div class="contact-info">
+            <div class="trial-wrap">
+              <p class="trial-highlight">1日体験受付中</p>
+            </div>
+            <p>体験料：2,000円</p>
+            <p>(入会時2,000円キャッシュバック)</p>
+            <p>
+              TEL：
+              <a href="tel:0829425114" class="contact-phone"> 082-942-5114 </a>
+            </p>
+
+            <p class="contact-note">
+              ※トレーニング中は電話対応不可の場合あり。
+            </p>
+            <div class="contact-img">
+              <img
+                src="../assets/images/contact_photo.png"
+                alt="会長写真"
+                loading="lazy"
+              />
+            </div>
+          </div>
+
+          <!-- Contact form -->
+          <div class="trial-wrap"></div>
+          <form class="contact-form" action="#" method="post">
+            <div class="form-group">
+              <label>お名前</label>
+              <input type="text" name="name" value maxlength="20" required />
+            </div>
+
+            <div class="form-group">
+              <label>住所</label>
+              <input type="text" name="address" value maxlength="20" />
+            </div>
+            <div class="form-group">
+              <label>メールアドレス <span>必須</span></label>
+              <input type="email" name="email" value maxlength="25" required />
+            </div>
+            <div class="form-group">
+              <label>メールアドレス(確認) <span>必須</span></label>
+              <input type="email" name="email" value maxlength="25" required />
+            </div>
+            <div class="form-group">
+              <label>電話番号</label>
+              <input type="text" name="tel" value maxlength="20" required />
+            </div>
+
+            <div class="form-group">
+              <label>お問い合わせ種別</label>
+              <select name="type" name="title" value maxlength="20">
+                <option>体験レッスンについて</option>
+                <option>料金について</option>
+                <option>入会について</option>
+                <option>その他</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>お問い合わせ内容</label>
+              <textarea
+                name="message"
+                rows="5"
+                placeholder="3000文字以内..."
+                required
+              ></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary">送信する</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer id="site-footer"></footer>
+
+    <script type="module" src="../assets/js/main.js"></script>
+  </body>
+</html>

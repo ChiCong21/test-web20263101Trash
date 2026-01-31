@@ -1,0 +1,87 @@
+/* Desktop table */
+.fee-table{
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,.08);
+}
+
+.fee-table th,
+.fee-table td{
+  padding: 14px 12px;
+  border-bottom: 1px solid rgba(0,0,0,.06);
+  text-align: center;
+  font-size: 15px;
+}
+
+.fee-table thead th{
+  background: #0a0a0a;
+  color: #fff;
+  font-weight: 900;
+}
+
+.fee-table tbody th{
+  text-align: left;
+  font-weight: 900;
+  background: #f7f7f7;
+}
+
+/* Mobile cards */
+.fee-mobile{
+  display: none;
+  margin-top: 14px;
+  display: grid;
+  gap: 12px;
+}
+
+.fee-card{
+  border: 1px solid rgba(0,0,0,.08);
+  border-radius: 16px;
+  padding: 14px 14px;
+  background: #fff;
+  box-shadow: 0 12px 24px rgba(0,0,0,.05);
+}
+
+.fee-card h3{
+  margin: 0 0 10px;
+  font-size: 16px;
+  font-weight: 900;
+}
+
+.fee-card dl{
+  margin: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.fee-card dl > div{
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: #f7f7f7;
+}
+
+.fee-card dt{
+  font-weight: 800;
+}
+
+.fee-card dd{
+  margin: 0;
+  font-weight: 900;
+}
+
+/* Switch */
+@media (max-width: 768px){
+  .fee-desktop{ display: none; }
+  .fee-mobile{ display: grid; }
+}
+
+.fee-notes{
+  margin-top: 16px;
+  line-height: 1.8;
+}
+
+.muted{ opacity: .7; font-size: 13px; }
