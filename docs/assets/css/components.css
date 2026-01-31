@@ -58,110 +58,65 @@
   color: #f50404;
 }
 
-/* Toggle button */
-.nav-toggle {
+
+
+.menu-toggle {
   display: none;
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, .2);
-  background: transparent;
-  cursor: pointer;
-}
-
-.nav-toggle-bar {
-  display: block;
-  width: 18px;
-  height: 2px;
-  margin: 4px auto;
-  background: #fff;
-  border-radius: 2px;
 }
 
 
-
-/* Mobile */
 @media (max-width: 768px) {
+  .menu-toggle {
+    display: inline-flex;
+  }
+
+  .header-inner {
+    position: relative;
+  }
+
+
   .nav-toggle {
     display: inline-flex;
     align-items: center;
     justify-content: center;
   }
-   .nav-menu {
+
+
+  .nav-menu {
+    display: none;
     position: fixed;
-    top: 0;
-    right: 0;
-    height: 100vh;
-    width: min(86vw, 360px);
-    background: #0b0b0b;
-    border-left: 1px solid rgba(255,255,255,.12);
-    padding: 84px 18px 18px;
-    display: flex;
+    top: 72px;
+    right: 12px;
+    width: min(260px, 88vw);
     flex-direction: column;
-    align-items: stretch;
-    gap: 10px;
-
-    transform: translateX(110%);
-    transition: transform 0.25s ease;
-    z-index: 2100;
+    gap: 0;
+    background: rgba(15, 15, 15, 0.96);
+    border: 1px solid rgba(255, 255, 255, .12);
+    border-radius: 14px;
+    padding: 10px;
   }
-   .nav-menu a {
+
+  .nav-menu.is-open {
+    display: flex;
+  }
+
+  .nav-menu li a {
     display: block;
-    padding: 14px 12px;
+    padding: 12px 14px;
     border-radius: 10px;
-    color: #fff;
-    text-decoration: none;
-    background: rgba(255,255,255,.06);
-    border: 1px solid rgba(255,255,255,.10);
-  }
-  .nav-menu a:hover {
-    background: rgba(255,255,255,.10);
-  }
-  .nav-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,.55);
-    backdrop-filter: blur(2px);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.25s ease;
-    z-index: 2000;
-    display: block;
+    color: rgba(255, 255, 255, .9);
   }
 
-
-  body.nav-open .nav-menu {
-    transform: translateX(0);
-  }
-  body.nav-open .nav-overlay {
-    opacity: 1;
-    pointer-events: auto;
+  .nav-menu li a:hover {
+    background: rgba(255, 255, 255, .08);
   }
 
-
-  body.nav-open .nav-toggle-bar:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-  }
-  body.nav-open .nav-toggle-bar:nth-child(2) {
-    opacity: 0;
-  }
-  body.nav-open .nav-toggle-bar:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
+  .sns-facebook {
+    display: none;
   }
 
-  .nav-close-row {
-    margin-top: auto;
-  }
-  .nav-close {
-    width: 100%;
-    padding: 12px;
-    border-radius: 10px;
-    border: 1px solid rgba(255,255,255,.18);
-    background: transparent;
-    color: #fff;
-    cursor: pointer;
-  }
 }
+
 
 
 /* ================================
@@ -248,10 +203,10 @@
 
 /* Mobile */
 @media (max-width: 768px) {
-   .sns-bar {
-    display: none ;
+  .sns-bar {
+    display: none;
   }
- 
+
 }
 
 
@@ -303,12 +258,12 @@
   position: absolute;
   inset: 0;
   background: linear-gradient(to right, rgba(0, 0, 0, 0.85) 35%, rgba(0, 0, 0, 0.4) 60%, rgba(0, 0, 0, 0.1) 100%);
-  z-index: 1;
+
 }
 
 .hero-inner {
   position: relative;
-  z-index: 2;
+
   width: 100%;
   padding: 0 8%;
 }
@@ -382,6 +337,7 @@
     min-height: 70vh;
     background-size: cover;
     background-position: center top;
+    z-index: -1;
   }
 
   .hero-bg::before {
@@ -400,15 +356,7 @@
 /* ================================
    ABOUT TRASH – WHITE BACKGROUND
 ================================ */
-#home {
-  padding-top: 10px;
-}
 
-@media (max-width: 768px) {
-  #home {
-    padding-top: 22px;
-  }
-}
 
 .about-white {
   background: #fff;
@@ -895,7 +843,8 @@
 /* nếu bạn dùng access-white mà muốn vẫn có nền trắng,
    có thể bỏ background ở trên hoặc override như dưới */
 .access-white {
-  background: #f5f6f8; /* đổi #fff nếu muốn section trắng hẳn */
+  background: #f5f6f8;
+  /* đổi #fff nếu muốn section trắng hẳn */
 }
 
 .access-flex {
@@ -911,7 +860,7 @@
 
   /* hiệu ứng nổi */
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08),
-              0 8px 20px rgba(0, 0, 0, 0.06);
+    0 8px 20px rgba(0, 0, 0, 0.06);
   border: 1px solid rgba(0, 0, 0, 0.04);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
@@ -921,7 +870,7 @@
   .access-flex:hover {
     transform: translateY(-6px);
     box-shadow: 0 30px 70px rgba(0, 0, 0, 0.12),
-                0 10px 25px rgba(0, 0, 0, 0.08);
+      0 10px 25px rgba(0, 0, 0, 0.08);
   }
 }
 
@@ -943,8 +892,8 @@
   font-size: 18px;
   margin-bottom: 6px;
   color: #000;
-  border-left:6px solid rgb(255, 8, 8);
-  padding-left:10px;
+  border-left: 6px solid rgb(255, 8, 8);
+  padding-left: 10px;
 }
 
 /* map */
@@ -965,7 +914,7 @@
     grid-template-columns: 1fr;
     padding: 24px;
     gap: 22px;
-   
+
   }
 
 

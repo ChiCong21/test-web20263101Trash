@@ -15,18 +15,12 @@ async function loadComponent(selector, url) {
   }
 }
 
-
 loadComponent("#site-header", `${BASE}/components/navbar.html`);
 loadComponent("#site-footer", `${BASE}/components/footer.html`);
 
 loadComponent("#hero", `${BASE}/components/hero.html`);
 loadComponent("#home", `${BASE}/pages/home.html`);
 loadComponent("#sns-bar", `${BASE}/components/sns-bar.html`);
-
-
-
-
-
 
 window.addEventListener("scroll", () => {
   const header = document.querySelector(".site-header");
@@ -46,10 +40,6 @@ function activeNavLink() {
 
 activeNavLink();
 
-
-
-
-
 /* =========================
    SPLIT GALLERY
 ========================= */
@@ -63,7 +53,6 @@ const galleryImages = [
   `${BASE}/assets/images/gallery/p5.png`,
   `${BASE}/assets/images/gallery/p6.png`,
 ];
-
 
 let galleryIndex = 0;
 let autoTimer = null;
@@ -84,7 +73,6 @@ function initSplitGallery() {
     leftImg.classList.remove("enter");
     rightImg.classList.remove("enter");
 
-
     void leftImg.offsetHeight;
     void rightImg.offsetHeight;
 
@@ -96,7 +84,6 @@ function initSplitGallery() {
     leftImg.src = getImg(galleryIndex);
     rightImg.src = getImg(galleryIndex + 1);
 
- 
     requestAnimationFrame(() => {
       animate();
     });
@@ -117,7 +104,7 @@ function initSplitGallery() {
 
   function startAuto() {
     stopAuto();
-    autoTimer = setInterval(next, 2000); 
+    autoTimer = setInterval(next, 2000);
   }
 
   function stopAuto() {
@@ -135,19 +122,16 @@ function initSplitGallery() {
 
   btnPrev?.addEventListener("click", () => {
     prev();
-    startAuto(); 
+    startAuto();
   });
 
- 
   split.addEventListener("mouseenter", stopAuto);
   split.addEventListener("mouseleave", startAuto);
 
-
   split.dataset.mode = "next";
   render();
-  startAuto(); 
+  startAuto();
 }
-
 
 const waitGallery = setInterval(() => {
   if (document.getElementById("splitGallery")) {
@@ -156,7 +140,6 @@ const waitGallery = setInterval(() => {
   }
 }, 60);
 
-
 function applyBasePaths(root = document) {
   // Set logo images
   root.querySelectorAll("[data-path]").forEach((el) => {
@@ -164,14 +147,12 @@ function applyBasePaths(root = document) {
     el.setAttribute("src", `${BASE}/${p}`);
   });
 
-  // Set internal links 
+  // Set internal links
   root.querySelectorAll("[data-href]").forEach((a) => {
     const p = a.getAttribute("data-href");
     a.setAttribute("href", `${BASE}/${p}`);
   });
 }
-
-
 
 // Watch header/footer inserted by fetch, then apply paths
 const mo = new MutationObserver(() => {
@@ -204,47 +185,35 @@ function setActiveMenu() {
 
 window.addEventListener("load", setActiveMenu);
 
-// button navbar
-document.addEventListener("DOMContentLoaded", () => {
-  const btn = document.querySelector(".nav-toggle");
+
+// toggle menu
+function myFunction() {
   const menu = document.getElementById("nav-menu");
-  const closeEls = document.querySelectorAll("[data-nav-close]");
-  const links = menu ? menu.querySelectorAll("a") : [];
+  const btn = document.querySelector(".menu-toggle");
+  if (!menu) return;
 
-  if (!btn || !menu) return;
+  const isOpen = menu.classList.toggle("is-open");
+  if (btn) btn.setAttribute("aria-expanded", String(isOpen));
+}
+window.myFunction = myFunction;
 
-  const openNav = () => {
-    document.body.classList.add("nav-open");
-    btn.setAttribute("aria-expanded", "true");
-  };
+document.addEventListener("click", (e) => {
+  const menu = document.getElementById("nav-menu");
+  const btn = document.querySelector(".menu-toggle");
+  if (!menu || !btn) return;
 
-  const closeNav = () => {
-    document.body.classList.remove("nav-open");
+  if (!menu.contains(e.target) && !btn.contains(e.target)) {
+    menu.classList.remove("is-open");
     btn.setAttribute("aria-expanded", "false");
-  };
-
-  btn.addEventListener("click", () => {
-    const isOpen = document.body.classList.contains("nav-open");
-    isOpen ? closeNav() : openNav();
-  });
-
-  closeEls.forEach(el => el.addEventListener("click", closeNav));
-  links.forEach(a => a.addEventListener("click", closeNav));
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") closeNav();
-  });
+  }
 });
 
+document.addEventListener("click", (e) => {
+  const link = e.target.closest("#nav-menu a");
+  if (!link) return;
 
-
-
-
-
-
-
-
-
-
-
-
+  const menu = document.getElementById("nav-menu");
+  const btn = document.querySelector(".menu-toggle");
+  if (menu) menu.classList.remove("is-open");
+  if (btn) btn.setAttribute("aria-expanded", "false");
+});
